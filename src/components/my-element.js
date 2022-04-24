@@ -14,20 +14,18 @@ export class MyElement extends LitElement {
         border: solid 1px gray;
         padding: 16px;
         max-width: 800px;
+        background-color: #fff8f5;
+      }
+
+      h1 {
+        font-size: 1.8rem;
       }
     `;
   }
 
   static get properties() {
     return {
-      /**
-       * The name to say "Hello" to.
-       */
       name: { type: String },
-
-      /**
-       * The number of times the button has been clicked.
-       */
       count: { type: Number },
     };
   }
