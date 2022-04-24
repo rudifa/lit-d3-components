@@ -109,7 +109,7 @@ export class D3Scatterplot extends LitElement {
     return css`
       :host {
         display: block;
-        max-width: 832px;
+        max-width: 830px;
         background-color: #f9f8f5;
         color: black;
       }

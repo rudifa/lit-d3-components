@@ -3,6 +3,14 @@ import { LitElement, html, css } from "lit";
 export class InfoLinks extends LitElement {
   static get styles() {
     return css`
+      :host {
+        display: block;
+        border: solid 1px gray;
+        padding: 2px;
+        max-width: 828px;
+        background-color: #fff8f5;
+      }
+
       h1 {
         font-size: 3rem;
       }
@@ -34,7 +42,7 @@ export class InfoLinks extends LitElement {
   }
 
   aHref(url, text) {
-    return html` <a href=${url} class="link">${text}</a> `;
+    return html` <a href=${url} class="link" target="_blank">${text} </a> `;
   }
 
   render() {
