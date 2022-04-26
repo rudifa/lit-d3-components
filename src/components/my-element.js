@@ -1,4 +1,5 @@
 import { html, css, LitElement } from "lit";
+import { property, customElement, state } from "lit/decorators.js";
 
 /**
  * An example element.
@@ -6,6 +7,7 @@ import { html, css, LitElement } from "lit";
  * @slot - This element has a slot
  * @csspart button - The button
  */
+@customElement("my-element")
 export class MyElement extends LitElement {
   static get styles() {
     return css`
@@ -20,21 +22,15 @@ export class MyElement extends LitElement {
       h1 {
         font-size: 1.8rem;
       }
+
+      button {
+        font-size: 1.1rem;
+      }
     `;
   }
 
-  static get properties() {
-    return {
-      name: { type: String },
-      count: { type: Number },
-    };
-  }
-
-  constructor() {
-    super();
-    this.name = "World";
-    this.count = 0;
-  }
+  @property({ type: String }) name = "World";
+  @state({ type: Number }) count = 0;
 
   render() {
     return html`
@@ -50,5 +46,3 @@ export class MyElement extends LitElement {
     this.count++;
   }
 }
-
-window.customElements.define("my-element", MyElement);

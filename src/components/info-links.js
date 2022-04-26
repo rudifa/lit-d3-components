@@ -1,5 +1,7 @@
 import { LitElement, html, css } from "lit";
+import { property, state, customElement } from "lit/decorators.js";
 
+@customElement("info-links")
 export class InfoLinks extends LitElement {
   static get styles() {
     return css`
@@ -32,17 +34,8 @@ export class InfoLinks extends LitElement {
     `;
   }
 
-  static properties = {
-    _space: { state: true },
-  };
-
-  constructor() {
-    super();
-    this.space = "    ";
-  }
-
   aHref(url, text) {
-    return html` <a href=${url} class="link" target="_blank">${text} </a> `;
+    return html` <a href=${url} class="link" target="_blank">${text} </a>`;
   }
 
   render() {
@@ -55,5 +48,3 @@ export class InfoLinks extends LitElement {
     `;
   }
 }
-
-window.customElements.define("info-links", InfoLinks);
