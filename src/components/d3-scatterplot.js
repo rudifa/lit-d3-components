@@ -1,24 +1,9 @@
 /** @prettier */
 
 import { LitElement, html, css, svg } from "lit";
-//import { property, customElement } from "lit/decorators.js";
+import { property, customElement } from "lit/decorators.js";
 
 import * as d3 from "d3";
-
-const dataset1 = [
-  [90, 20],
-  [20, 100],
-  [66, 44],
-  [53, 80],
-  [24, 182],
-  [80, 72],
-  [10, 76],
-  [33, 150],
-  [100, 15],
-  [0, 200],
-  [0, 0],
-  [100, 0],
-];
 
 /**
  * Scatter plot using d3.
@@ -104,6 +89,7 @@ function d3Scatter(dataset, title, xLabel, yLabel) {
 /**
  * Scatter plot using d3 in lit-element.
  */
+@customElement("d3-scatterplot")
 export class D3Scatterplot extends LitElement {
   static get styles() {
     return css`
@@ -137,30 +123,17 @@ export class D3Scatterplot extends LitElement {
     `;
   }
 
-  static get properties() {
-    return {
-      title: { type: String },
-      xLabel: { type: String },
-      yLabel: { type: String },
-      points: { type: Array },
-    };
-  }
-
-  constructor() {
-    super();
-    this.title = "Scatter Plot";
-    this.xLabel = "Independent";
-    this.yLabel = "Dependent";
-    this.points = [
-      [90, 20],
-      [20, 100],
-      [66, 44],
-    ];
-  }
+  @property({ type: String }) title = "Scatter Plot";
+  @property({ type: String }) xLabel = "Independent";
+  @property({ type: String }) yLabel = "Dependent";
+  @property({ type: Array }) points = [
+    [90, 20],
+    [20, 100],
+    [66, 44],
+  ];
 
   updated(changedProperties) {
     if (changedProperties.has("points")) {
-      console.log("updated: points changed: ", this.points);
     }
   }
 
@@ -168,5 +141,3 @@ export class D3Scatterplot extends LitElement {
     return [d3Scatter(this.points, this.title, this.xLabel, this.yLabel)];
   }
 }
-
-window.customElements.define("d3-scatterplot", D3Scatterplot);

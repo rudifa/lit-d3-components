@@ -1,8 +1,9 @@
 import { LitElement, html, css } from "lit";
-//import { property, customElement } from "lit/decorators.js";
+import { property, customElement } from "lit/decorators.js";
 
 import { InfoLinks } from "./info-links";
 import { D3Scatterplot } from "./d3-scatterplot";
+import { MyElement } from "./my-element";
 
 /**
  * Data set for the <d3-scatterplot> component.
@@ -37,6 +38,7 @@ const scpData = {
 /**
  * Demo app for lit-elements
  */
+@customElement("app-root")
 export class AppRoot extends LitElement {
   static get styles() {
     return css``;
@@ -58,5 +60,3 @@ export class AppRoot extends LitElement {
     `;
   }
 }
-
-window.customElements.define("app-root", AppRoot);
